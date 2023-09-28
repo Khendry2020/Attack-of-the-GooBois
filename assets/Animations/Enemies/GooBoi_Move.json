@@ -1,0 +1,50 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 21, "h": 24 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 9, "w": 19, "h": 22 },
+    "sourceSize": { "w": 50, "h": 50 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 1, "y": 1, "w": 21, "h": 24 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 9, "w": 19, "h": 22 },
+    "sourceSize": { "w": 50, "h": 50 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 1, "y": 1, "w": 21, "h": 24 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 10, "w": 19, "h": 22 },
+    "sourceSize": { "w": 50, "h": 50 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 1, "y": 1, "w": 21, "h": 24 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 10, "w": 19, "h": 22 },
+    "sourceSize": { "w": 50, "h": 50 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.40-x64",
+  "image": "GooBoi_Move.png",
+  "format": "RGBA8888",
+  "size": { "w": 22, "h": 25 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
