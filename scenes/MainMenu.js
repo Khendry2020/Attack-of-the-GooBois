@@ -5,7 +5,20 @@ export class MainMenu extends Phaser.Scene {
   create() {
     this.add.image(480, 220, "Menu Background");
     this.add.image(470, 150, "Title");
-    this.add.image(450, 300, "Play");
+
+    const play = this.add.sprite(450, 300, "Play").setInteractive();
+
+    play.on("pointerover", function (pointer) {
+      this.setTint(0x8a8a8a80);
+    });
+    play.on("pointerup", function (pointer) {
+      this.clearTint();
+    });
+    play.on("pointerdown", () => {
+      this.cameras.main.fadeOut(1000, 0, 0, 0);
+      this.time.delayedCall(1000, () => {
+        this.scene.start("Level_1");
+      });
+    });
   }
-  update() {}
 }

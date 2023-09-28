@@ -11,7 +11,10 @@ export class Boot extends Phaser.Scene {
     this.load.image("Hal", "Player/Hal.png");
     //---=Background images----//
     this.load.image("Menu Background", "Menu/Main_Menu_Background.png");
-    this.load.image("Level_1_Background", "Level/Level_Tile.png");
+    this.load.image(
+      "Level_1_Background",
+      "Level/Level_1/Level_1_Background.png"
+    );
     //----Platforms/Floor----//
     this.load.image("Floor", "Level/Floor.png");
     this.load.image("PlatformSmall", "Level/Platform_small.png");
@@ -91,29 +94,15 @@ export class Boot extends Phaser.Scene {
       frameRate: 8,
       repeat: -1,
     });
+    this.cameras.main.fadeIn(1000, 0, 0, 0);
+    this.time.delayedCall(1000, () => {
+      this.scene.start("MainMenu");
+    });
+    //----Hal(Player Character)----//
+    //this.Hal = this.HalCreate();
   }
 
-  update() {
-    this.scene.start("MainMenu");
-    //----Player Movement----//
-    // var keys = this.input.keyboard.addKeys("W,A,D");
-    // if (keys.A.isDown) {
-    //   Hal.setFlipX(true);
-    //   Hal.setVelocityX(-160);
-    //   console.log("Left");
-    // } else if (keys.D.isDown) {
-    //   Hal.setFlipX(false);
-    //   Hal.setVelocityX(160);
-    //   console.log("Right");
-    // } else {
-    //   Hal.setVelocityX(0);
-    // }
-
-    // if (keys.W.isDown && Hal.body.touching.down) {
-    //   Hal.setVelocityY(-650);
-    //   console.log("Jump");
-    // }
-  }
+  update() {}
   HalCreate(x, y) {
     Hal = this.physics.add.sprite(x, y, "Hal").setScale(1.8);
     Hal.setBounce(0.2);
@@ -129,6 +118,5 @@ export class Boot extends Phaser.Scene {
   }
   CoinCreate(x, y) {
     Coin = this.physics.add.sprite(x, y, "Coin").setScale(1.8);
-    return Coin;
   }
 }
