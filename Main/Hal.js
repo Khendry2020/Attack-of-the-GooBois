@@ -1,39 +1,35 @@
-class PlayerPlugin extends Phaser.Plugins.ScenePlugin {
-  constructor(scene, pluginManager) {
-    super(scene, pluginManager);
-    this.player = null;
+export class createHal extends Phaser.Physics.Arcade.Sprite {
+  constructor(scene, x, y) {
+    super(scene, x, y, "Hal");
+    console.log("createHal");
   }
-
-  createPlayer(x, y, texture) {
-    this.player = new Hal(this.scene, x, y, texture);
-    return this.player;
-  }
-
-  getPlayer() {
-    return this.player;
+  create() {
+    this.setScale(1.8);
+    this.setBounce(0.2);
+    this.setCollideWorldBounds(true);
+    this.body.setGravityY(1300);
+    console.log("createHal - create()");
   }
 
   update() {
-    if (this.player) {
-      //----Player Movement----//
-      var keys = this.scene.input.keyboard.createCursorKeys();
+    //----Player Movement----//
+    console.log("createHal - update()");
+    this.keys = this.input.keyboard.addKeys("W,A,D");
+    if (this.keys.A.isDown) {
+      this.setFlipX(true);
+      this.setVelocityX(-160);
+      console.log("Left");
+    } else if (this.keys.D.isDown) {
+      this.setFlipX(false);
+      this.setVelocityX(160);
+      console.log("Right");
+    } else {
+      this.setVelocityX(0);
+    }
 
-      if (keys.left.isDown) {
-        this.player.setFlipX(true);
-        this.player.setVelocityX(-160);
-        console.log("Left");
-      } else if (keys.right.isDown) {
-        this.player.setFlipX(false);
-        this.player.setVelocityX(160);
-        console.log("Right");
-      } else {
-        this.player.setVelocityX(0);
-      }
-
-      if (keys.up.isDown && this.player.body.touching.down) {
-        this.player.setVelocityY(-650);
-        console.log("Jump");
-      }
+    if (this.keys.W.isDown && this.body.touching.down) {
+      this.setVelocityY(-650);
+      console.log("Jump");
     }
   }
 }

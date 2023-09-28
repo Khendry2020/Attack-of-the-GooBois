@@ -1,3 +1,5 @@
+import { createHal } from "../Main/Hal.js";
+
 export class Level_1 extends Phaser.Scene {
   constructor() {
     super({ key: "Level_1" });
@@ -15,13 +17,9 @@ export class Level_1 extends Phaser.Scene {
     //PlatformSmall_1.setScale(1.2);
     floor.create(480, 440, "Floor").refreshBody();
 
-    //----this.Hal----//
-    this.Hal = this.physics.add
-      .sprite(50, 320, "Hal")
-      .setScale(2.5)
-      .setBounce(0.2)
-      .setCollideWorldBounds(true)
-      .body.setGravityY(1300);
+    //----Hal----//
+    var Hal;
+    Hal = this.physics.add.existing(new createHal(this, 420, 225));
 
     //----GooBoi's----//
     this.GooBoi_1 = this.physics.add
@@ -44,23 +42,5 @@ export class Level_1 extends Phaser.Scene {
   update() {
     this.GooBoi_1.play("idle");
     this.GooBoi_2.play("idle");
-
-    //----Player Movement----//
-    var keys = this.input.keyboard.addKeys("W,A,D");
-    if (keys.A.isDown) {
-      this.Hal.setFlipX(true);
-      this.Hal.setVelocityX(-160);
-      console.log("Left");
-    } else if (keys.D.isDown) {
-      this.Hal.setFlipX(false);
-      this.Hal.setVelocityX(160);
-      console.log("Right");
-    } else {
-      this.Hal.setVelocityX(0);
-    }
-    if (keys.W.isDown && this.Hal.body.touching.down) {
-      this.Hal.setVelocityY(-650);
-      console.log("Jump");
-    }
   }
 }
