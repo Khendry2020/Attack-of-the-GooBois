@@ -94,29 +94,32 @@ export class Boot extends Phaser.Scene {
       frameRate: 8,
       repeat: -1,
     });
+    //----Load Level----//
     this.cameras.main.fadeIn(1000, 0, 0, 0);
     this.time.delayedCall(1000, () => {
-      this.scene.start("MainMenu");
+      this.scene.start("Level_1");
     });
-    //----Hal(Player Character)----//
-    //this.Hal = this.HalCreate();
   }
 
-  update() {}
-  HalCreate(x, y) {
-    Hal = this.physics.add.sprite(x, y, "Hal").setScale(1.8);
-    Hal.setBounce(0.2);
-    Hal.setCollideWorldBounds(true);
-    Hal.body.setGravityY(1300);
-    return Hal;
-  }
+  update() {
+    //----Player Movement----//
+    console.log("createHal - update()");
+    this.keys = this.scene.input.keyboard.addKeys("W,A,D");
+    if (this.keys.A.isDown) {
+      this.setFlipX(true);
+      this.setVelocityX(-160);
+      console.log("Left");
+    } else if (this.keys.D.isDown) {
+      this.setFlipX(false);
+      this.setVelocityX(160);
+      console.log("Right");
+    } else {
+      this.setVelocityX(0);
+    }
 
-  GooboiCreate(x, y) {
-    GooBoi = this.physics.add.sprite(x, y, "GooBoi").setScale(1.5);
-    GooBoi.setBounce(0.2).setCollideWorldBounds(true).setGravityY(1300);
-    return GooBoi;
-  }
-  CoinCreate(x, y) {
-    Coin = this.physics.add.sprite(x, y, "Coin").setScale(1.8);
+    if (this.keys.W.isDown && this.body.touching.down) {
+      this.setVelocityY(-650);
+      console.log("Jump");
+    }
   }
 }

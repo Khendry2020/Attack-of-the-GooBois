@@ -1,4 +1,4 @@
-import { createHal } from "../Main/Hal.js";
+import HalConfig from "../Main/Hal.js";
 
 export class Level_1 extends Phaser.Scene {
   constructor() {
@@ -18,9 +18,9 @@ export class Level_1 extends Phaser.Scene {
     floor.create(480, 440, "Floor").refreshBody();
 
     //----Hal----//
-    var Hal;
-    Hal = this.physics.add.existing(new createHal(this, 420, 225));
+    let Hal = new HalConfig({ scene: this, x: 100, y: 100 });
 
+    Hal;
     //----GooBoi's----//
     this.GooBoi_1 = this.physics.add
       .sprite(60, 400, "GooBoi")
@@ -30,7 +30,7 @@ export class Level_1 extends Phaser.Scene {
       .setGravityY(1300);
 
     this.GooBoi_2 = this.physics.add
-      .sprite(420, 225, "GooBoi")
+      .sprite(420, 100, "GooBoi")
       .setScale(1.5)
       .setBounce(0.2)
       .setCollideWorldBounds(true)
