@@ -9,6 +9,7 @@ export default class createGooBoi extends Phaser.Physics.Arcade.Sprite {
     this.body.setCollideWorldBounds(true);
   }
   create() {
+    console.log("Create GooBoi");
     this.anims.create({
       key: "idle",
       frames: [
@@ -22,6 +23,7 @@ export default class createGooBoi extends Phaser.Physics.Arcade.Sprite {
     });
   }
   update() {
+    console.log("Update GooBoi");
     this.body.play("idle");
   }
 }

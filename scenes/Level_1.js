@@ -43,9 +43,5 @@ export class Level_1 extends Phaser.Scene {
     this.physics.add.collider(this.Hal, platform);
   }
 
-  update() {
-    //this.cursors = this.input.keyboard.createCursorKeys();
-    // this.GooBoi_1.play("idle");
-    // this.GooBoi_2.play("idle");
-  }
+  update() {}
 }

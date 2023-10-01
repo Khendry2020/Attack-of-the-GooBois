@@ -33,6 +33,6 @@ export default class createCoin extends Phaser.Physics.Arcade.Sprite {
     });
   }
   update() {
-    this.body.play("coin");
+    this.play("coin");
   }
 }
