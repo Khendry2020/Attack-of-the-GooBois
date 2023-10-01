@@ -1,5 +1,12 @@
-import HalConfig from "../Main/Hal.js";
+import createCoin from "../Main/Coin.js";
+import createGooBoi from "../Main/GooBoi.js";
+import createHal from "../Main/Hal.js";
 
+//----Varibles----//
+var GooBoi_1;
+var Coin_1;
+var Coin_2;
+var Hal;
 export class Level_1 extends Phaser.Scene {
   constructor() {
     super({ key: "Level_1" });
@@ -18,29 +25,27 @@ export class Level_1 extends Phaser.Scene {
     floor.create(480, 440, "Floor").refreshBody();
 
     //----Hal----//
-    let Hal = new HalConfig({ scene: this, x: 100, y: 100 });
-
+    this.Hal = new createHal(this, 200, 200);
     Hal;
-    //----GooBoi's----//
-    this.GooBoi_1 = this.physics.add
-      .sprite(60, 400, "GooBoi")
-      .setScale(1.5)
-      .setBounce(0.2)
-      .setCollideWorldBounds(true)
-      .setGravityY(1300);
 
-    this.GooBoi_2 = this.physics.add
-      .sprite(420, 100, "GooBoi")
-      .setScale(1.5)
-      .setBounce(0.2)
-      .setCollideWorldBounds(true)
-      .setGravityY(1300);
+    //----GooBoi----//
+    this.GooBoi_1 = new createGooBoi(this, 500, 200);
+    GooBoi_1;
 
-    //----Spawn this.Hal----//
+    //----Coin's----//
+    this.Coin_1 = new createCoin(this, 500, 400);
+    this.Coin_2 = new createCoin(this, 400, 400);
+    Coin_1;
+    Coin_2;
+
+    //----Collision Mesh----//
+    this.physics.add.collider(this.Hal, floor);
+    this.physics.add.collider(this.Hal, platform);
   }
 
   update() {
-    this.GooBoi_1.play("idle");
-    this.GooBoi_2.play("idle");
+    //this.cursors = this.input.keyboard.createCursorKeys();
+    // this.GooBoi_1.play("idle");
+    // this.GooBoi_2.play("idle");
   }
 }

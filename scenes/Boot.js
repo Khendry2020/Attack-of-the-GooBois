@@ -100,26 +100,4 @@ export class Boot extends Phaser.Scene {
       this.scene.start("Level_1");
     });
   }
-
-  update() {
-    //----Player Movement----//
-    console.log("createHal - update()");
-    this.keys = this.scene.input.keyboard.addKeys("W,A,D");
-    if (this.keys.A.isDown) {
-      this.setFlipX(true);
-      this.setVelocityX(-160);
-      console.log("Left");
-    } else if (this.keys.D.isDown) {
-      this.setFlipX(false);
-      this.setVelocityX(160);
-      console.log("Right");
-    } else {
-      this.setVelocityX(0);
-    }
-
-    if (this.keys.W.isDown && this.body.touching.down) {
-      this.setVelocityY(-650);
-      console.log("Jump");
-    }
-  }
 }
