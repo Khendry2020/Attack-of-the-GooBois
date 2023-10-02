@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Attack of the GooBoi's</title>
+    <title>Attack of The GooBoi's</title>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.js"></script>
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <div id="Game">
       <script type="module">
-        import { Boot } from "./scenes/Boot.js";
+        import { Boot } from "./Main/Boot.js";
+        import { Animations } from "./Main/Animations.js";
         import { MainMenu } from "./scenes/MainMenu.js";
         import { Level_1 } from "./scenes/Level_1.js";
         import { Level_2 } from "./scenes/Level_2.js";
@@ -21,7 +22,7 @@
           type: Phaser.AUTO,
           width: 960,
           height: 440,
-          scene: [Boot, MainMenu, Level_1, Level_2, Level_3],
+          scene: [Boot, Animations, MainMenu, Level_1, Level_2, Level_3],
           pixelArt: true,
           physics: {
             default: "arcade",

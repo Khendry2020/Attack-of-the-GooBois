@@ -12,22 +12,12 @@ export default class createHal extends Phaser.Physics.Arcade.Sprite {
   update() {
     //----Player Movement----//
     console.log("createHal - update()");
-    this.keys = this.scene.input.keyboard.addKeys("W,A,D");
-    if (this.scene.keys.A.isDown) {
-      this.body.setFlipX(true);
-      this.body.setVelocityX(-160);
-      console.log("Left");
-    } else if (this.scene.keys.D.isDown) {
-      this.body.setFlipX(false);
-      this.body.setVelocityX(160);
-      console.log("Right");
+    if (this.scene.cursors.right.isDown) {
+      this.body.setVelocityX(190);
+    } else if (scene.cursors.left.isDown) {
+      this.body.setVelocityX(-190);
     } else {
-      this.setVelocityX(0);
-    }
-
-    if (this.scene.keys.W.isDown && this.body.touching.down) {
-      this.body.setVelocityY(-650);
-      console.log("Jump");
+      this.body.setVelocityX(0);
     }
   }
 }

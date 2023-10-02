@@ -41,7 +41,13 @@ export class Level_1 extends Phaser.Scene {
     //----Collision Mesh----//
     this.physics.add.collider(this.Hal, floor);
     this.physics.add.collider(this.Hal, platform);
+    //----Call Class create()----//
+    this.GooBoi_1.create();
   }
 
-  update() {}
+  update() {
+    // this.GooBoi_1.create();
+    this.GooBoi_1.update();
+    this.Hal.update();
+  }
 }

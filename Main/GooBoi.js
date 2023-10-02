@@ -24,6 +24,6 @@ export default class createGooBoi extends Phaser.Physics.Arcade.Sprite {
   }
   update() {
     console.log("Update GooBoi");
-    this.body.play("idle");
+    this.play("idle");
   }
 }
