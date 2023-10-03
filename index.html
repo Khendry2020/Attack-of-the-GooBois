@@ -12,7 +12,7 @@
     <div id="Game">
       <script type="module">
         import { Boot } from "./Main/Boot.js";
-        import { Animations } from "./Main/Animations.js";
+        import { GameOver } from "./scenes/GameOver.js";
         import { MainMenu } from "./scenes/MainMenu.js";
         import { Level_1 } from "./scenes/Level_1.js";
         import { Level_2 } from "./scenes/Level_2.js";
@@ -22,7 +22,7 @@
           type: Phaser.AUTO,
           width: 960,
           height: 440,
-          scene: [Boot, Animations, MainMenu, Level_1, Level_2, Level_3],
+          scene: [Boot, GameOver, MainMenu, Level_1, Level_2, Level_3],
           pixelArt: true,
           physics: {
             default: "arcade",

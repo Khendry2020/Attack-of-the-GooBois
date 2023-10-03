@@ -8,22 +8,4 @@ export default class createGooBoi extends Phaser.Physics.Arcade.Sprite {
     this.body.setGravityY(660);
     this.body.setCollideWorldBounds(true);
   }
-  create() {
-    console.log("Create GooBoi");
-    this.anims.create({
-      key: "idle",
-      frames: [
-        { key: "GooBoi", frame: 0 },
-        { key: "GooBoi", frame: 1 },
-        { key: "GooBoi", frame: 2 },
-        { key: "GooBoi", frame: 3 },
-      ],
-      frameRate: 8,
-      repeat: -1,
-    });
-  }
-  update() {
-    console.log("Update GooBoi");
-    this.play("idle");
-  }
 }

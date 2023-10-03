@@ -5,7 +5,7 @@ export class MainMenu extends Phaser.Scene {
   create() {
     this.add.image(480, 220, "Menu Background");
     this.add.image(470, 150, "Title");
-
+    this.cameras.main.fadeIn(1000, 0, 0, 0);
     const play = this.add.sprite(450, 300, "Play").setInteractive();
 
     play.on("pointerover", function (pointer) {

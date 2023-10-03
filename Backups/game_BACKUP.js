@@ -172,8 +172,10 @@ function update() {
   //----Pickup Coin----//
   if (this.physics.overlap(Hal, Coin_1, pickupCoin1)) {
     this.sound.play("CollectSound");
+    this.sound.stop();
   }
   if (this.physics.overlap(Hal, Coin_2, pickupCoin2)) {
     this.sound.play("CollectSound");
+    this.sound.stop();
   }
 }
